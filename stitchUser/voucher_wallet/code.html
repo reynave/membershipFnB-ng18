@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "secondary": "#914c14",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002201",
+                    "inverse-primary": "#a1d494",
+                    "on-tertiary-fixed": "#2b1611",
+                    "primary-fixed": "#bcf0ae",
+                    "secondary-fixed": "#ffdcc6",
+                    "inverse-surface": "#2f3130",
+                    "secondary-container": "#fda465",
+                    "surface-container-highest": "#e3e2e1",
+                    "secondary-fixed-dim": "#ffb786",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadad9",
+                    "outline": "#72796e",
+                    "outline-variant": "#c2c9bb",
+                    "background": "#faf9f8",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#2d5a27",
+                    "on-surface": "#1a1c1c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#e1bab1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#e5beb5",
+                    "surface": "#faf9f8",
+                    "surface-tint": "#3b6934",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-fixed-dim": "#a1d494",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f4f3f2",
+                    "on-secondary-container": "#753800",
+                    "on-surface-variant": "#42493e",
+                    "tertiary": "#4d332d",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdad2",
+                    "primary": "#154212",
+                    "on-primary-container": "#9dd090",
+                    "on-secondary-fixed": "#311400",
+                    "on-secondary-fixed-variant": "#723600",
+                    "surface-container": "#eeeeed",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e3e2e1",
+                    "tertiary-container": "#664943",
+                    "on-primary-fixed-variant": "#23501e",
+                    "on-tertiary-fixed-variant": "#5c403a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-vignette {
+            background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.03) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-[#faf9f8]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)]">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#2d5a27] dark:text-green-500 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors p-2 rounded-full active:scale-95 duration-200">menu</button>
+<h1 class="font-['Noto_Serif'] text-xl font-black text-[#2d5a27] dark:text-green-500 uppercase tracking-widest">The Epicurean</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined text-[#2d5a27] dark:text-green-500 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors p-2 rounded-full active:scale-95 duration-200">notifications</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Editorial Header -->
+<section class="mb-8">
+<h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-2">Voucher Wallet</h2>
+<p class="text-on-surface-variant font-medium">Your curated selection of exclusive culinary rewards.</p>
+</section>
+<!-- Tabs Interface -->
+<nav class="flex gap-1 bg-surface-container-low p-1.5 rounded-2xl mb-8">
+<button class="flex-1 py-3 px-4 rounded-xl text-sm font-bold tracking-wide transition-all bg-surface-container-lowest shadow-sm text-primary">
+                ACTIVE
+            </button>
+<button class="flex-1 py-3 px-4 rounded-xl text-sm font-bold tracking-wide transition-all text-on-surface-variant hover:bg-surface-container-high">
+                USED/EXPIRED
+            </button>
+</nav>
+<!-- Voucher Cards Grid -->
+<div class="flex flex-col gap-6">
+<!-- Featured Voucher -->
+<div class="relative group overflow-hidden rounded-3xl bg-surface-container-lowest shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)] flex flex-col">
+<div class="h-40 w-full relative overflow-hidden">
+<img alt="Reward" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Gourmet steak dish with microgreens and jus on a designer white plate, soft atmospheric restaurant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8MdCZGnG9SoleMsp-Flp-qOq-k8lRWCtZX1R3YAoyEAXlKS7gkWM4CXZeTU2XptmVizFQX9Xd6GYzXaiWKo0LNmzwBrYSgTADQNtz19-C_iOtrnNRkQEjRb3TW01MMNYp_EUlzrDu85Clc5LWck8X5kTisUDltg3CYzdx2kMDZd2uvnHp19Dh3hUoiAj-5X8mHld0uJUSAdqJ7fM0kLE9yKZGtiOG-BwkEYR7SFGHGpW3VYy7xJRQN3X7IOgQ3yw49uXC2_9zC5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6">
+<span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">LIMITED TIME</span>
+</div>
+</div>
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Signature Tasting</h3>
+<p class="text-on-surface-variant text-sm mb-4">Complimentary 5-course tasting for two</p>
+<div class="flex items-center gap-2 text-error font-semibold text-xs tracking-wide uppercase">
+<span class="material-symbols-outlined text-sm">event</span>
+                            Expires Dec 31, 2024
+                        </div>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold text-sm tracking-wide shadow-lg active:scale-95 transition-all">
+                        REDEEM
+                    </button>
+</div>
+</div>
+<!-- Standard Voucher 1 -->
+<div class="bg-surface-container-low rounded-3xl p-6 flex gap-6 items-center">
+<div class="h-20 w-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-highest">
+<img alt="Cocktail" class="w-full h-full object-cover" data-alt="Artisanal cocktail with orange peel garnish in a crystal glass, moody lighting with warm highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNxT2JplfZaKFKd7ZVIAI8arzdfRIDzlvfkkjaBm-sBnS12SBhEfKDvNmE7_iPCg66MsuwNZbf7D0ihkwxzoFB8dIY1Cm6OXt2H_2HQHj7xdNvESpSVJHTWph8VBnfx5EnxQL5iHM2BXm-LOocvYAdoOT6zEHWMh69E5oUiY9_UyQWj69he2sXhm0cpLNOiQj1YTDrgF_i-6xmeKVbgxaQuGWg7zayOlb0Kes91dlSZc7QOoC3w66bVjrKpP7aV6SJjy12Hkto8wg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline text-lg font-bold text-on-surface">Evening Aperitif</h3>
+<span class="text-secondary font-black text-lg">20%</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-3">On all signature cocktails after 8PM</p>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant/60 text-[10px] font-bold uppercase tracking-wider">EXP: 15 NOV</span>
+<button class="text-primary font-bold text-sm hover:underline">Redeem Now</button>
+</div>
+</div>
+</div>
+<!-- Standard Voucher 2 -->
+<div class="bg-surface-container-low rounded-3xl p-6 flex gap-6 items-center">
+<div class="h-20 w-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-highest">
+<img alt="Coffee" class="w-full h-full object-cover" data-alt="Freshly brewed espresso in a ceramic cup with thick crema, warm morning light on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokCHu8577Md85BTfI6pJQqo3a3woogCmfbLW_6AwJP2INkhGZShIdW0UKvzdjPhZXSOSMGtov0uciADMhNGnCEMYWm3UoJlcB7lKoIMGNpQ-lcB_f8FO_8Pavet9iM5g-pCaEuB1__8yjE8D8zbqqgWpOgFUOmiuWO4_qLwUr5Jukht4kU9c8Kt0Je04WbegJm6-CNYb_k-JV12Nfw2s1IEo2pY0GMKmvJfGX8mHywQxyu2rDlSzhKmYejPDZK1FffoUHptBKXnc"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline text-lg font-bold text-on-surface">Morning Ritual</h3>
+<span class="text-secondary font-black text-lg">FREE</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-3">Any artisanal coffee or premium tea</p>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant/60 text-[10px] font-bold uppercase tracking-wider">EXP: 20 NOV</span>
+<button class="text-primary font-bold text-sm hover:underline">Redeem Now</button>
+</div>
+</div>
+</div>
+<!-- Points Progress Card -->
+<div class="bg-tertiary-container/10 border border-tertiary-container/20 rounded-3xl p-6 mt-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="bg-secondary rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">redeem</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Next Reward Tier</h4>
+<p class="text-on-surface-variant text-xs">Only 250 points to your next voucher</p>
+</div>
+</div>
+<span class="font-black text-secondary">75%</span>
+</div>
+<div class="h-2 w-full bg-secondary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-on-secondary-container w-3/4 rounded-full"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#faf9f8]/90 dark:bg-stone-950/90 backdrop-blur-2xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.08)] rounded-t-[1.5rem]">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">category</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">redeem</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#2d5a27] text-white rounded-2xl px-4 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

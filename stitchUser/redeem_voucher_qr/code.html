@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Redeem Voucher - The Epicurean</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "secondary": "#914c14",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002201",
+                    "inverse-primary": "#a1d494",
+                    "on-tertiary-fixed": "#2b1611",
+                    "primary-fixed": "#bcf0ae",
+                    "secondary-fixed": "#ffdcc6",
+                    "inverse-surface": "#2f3130",
+                    "secondary-container": "#fda465",
+                    "surface-container-highest": "#e3e2e1",
+                    "secondary-fixed-dim": "#ffb786",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadad9",
+                    "outline": "#72796e",
+                    "outline-variant": "#c2c9bb",
+                    "background": "#faf9f8",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#2d5a27",
+                    "on-surface": "#1a1c1c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#e1bab1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#e5beb5",
+                    "surface": "#faf9f8",
+                    "surface-tint": "#3b6934",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-fixed-dim": "#a1d494",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f4f3f2",
+                    "on-secondary-container": "#753800",
+                    "on-surface-variant": "#42493e",
+                    "tertiary": "#4d332d",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdad2",
+                    "primary": "#154212",
+                    "on-primary-container": "#9dd090",
+                    "on-secondary-fixed": "#311400",
+                    "on-secondary-fixed-variant": "#723600",
+                    "surface-container": "#eeeeed",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e3e2e1",
+                    "tertiary-container": "#664943",
+                    "on-primary-fixed-variant": "#23501e",
+                    "on-tertiary-fixed-variant": "#5c403a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .qr-gradient-border {
+            background: linear-gradient(135deg, #154212 0%, #2d5a27 100%);
+            padding: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased min-h-screen flex flex-col items-center">
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-[#faf9f8]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)]">
+<div class="flex items-center gap-4">
+<button class="p-2 text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+<span class="font-['Noto_Serif'] text-lg font-bold tracking-tight text-[#2d5a27] dark:text-green-500">Redeem Voucher</span>
+</div>
+<div class="flex items-center">
+<span class="font-['Noto_Serif'] text-xl font-black text-[#2d5a27] dark:text-green-500 uppercase tracking-widest">The Epicurean</span>
+</div>
+</header>
+<main class="flex-grow w-full max-w-md px-6 pt-24 pb-12 flex flex-col items-center justify-center">
+<section class="w-full text-center mb-8">
+<h1 class="font-headline text-3xl font-black text-on-surface mb-2 tracking-tight">$10 Off Specialty Coffee</h1>
+<p class="font-body text-on-surface-variant text-sm font-medium tracking-wide uppercase">Valid at all Artisan Roastery locations</p>
+</section>
+<div class="relative w-full aspect-square max-w-[320px] bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] flex items-center justify-center mb-8">
+<div class="qr-gradient-border rounded-[1.5rem] w-full h-full flex items-center justify-center bg-white p-4">
+<div class="w-full h-full bg-cover bg-center rounded-lg" data-alt="a crisp black and white qr code centered on a clean white background with sharp edges for digital scanning" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWxpDpuv5Ayhu8ecx8KitV8UE1UjxYKTuN31EbSEIN0hJKcRURkhlZSrFyL0IMMKR_4hr1Oed5FABueAAAnsH-__doBfo04eeSqusfbOo6dNfKT0NQFS4wDPhS5SyAW7POLj_nTBgHWXWtsm-pm5CWyUYaEVdOAgTaOswuffCCj46NCjlcGlQFwa-bqzEnx2wUn2WPvLQE5E5ISFe2kJiZ2E0EVdv2wETA-yHyk-EXU78VDZKvUH4Nn4lLXkO8mqFsOBKEFsUCP4c');">
+</div>
+</div>
+<div class="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span>04:59</span>
+</div>
+</div>
+<section class="w-full bg-surface-container-low rounded-[1.5rem] p-6 mb-10 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Voucher ID</p>
+<p class="font-headline text-lg font-bold">EP-8829-XL04</p>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Status</p>
+<p class="text-[#2d5a27] font-bold">Active</p>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant opacity-20"></div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Present this code to the barista before payment. This code is valid for a single transaction only and will expire in 5 minutes for security.
+            </p>
+</section>
+<div class="w-full space-y-4">
+<button class="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg shadow-[0_24px_48px_-12px_rgba(21,66,18,0.3)] active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">refresh</span>
+                Refresh Code
+            </button>
+<button class="w-full py-5 rounded-xl text-secondary font-bold text-lg hover:bg-stone-100 transition-colors active:scale-95 duration-200">
+                Cancel Redemption
+            </button>
+</div>
+</main>
+<footer class="w-full max-w-md px-6 py-8">
+<div class="flex items-center justify-center gap-2 text-stone-400">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-['Plus_Jakarta_Sans']">Secure Transaction Encryption</span>
+</div>
+</footer>
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary-container/5 blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-secondary-container/5 blur-[120px]"></div>
+</div>
+</body></html>

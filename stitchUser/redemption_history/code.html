@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Redemption History | The Epicurean</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#f1f0f0",
+                "secondary": "#914c14",
+                "surface-bright": "#faf9f8",
+                "on-secondary": "#ffffff",
+                "on-primary-fixed": "#002201",
+                "inverse-primary": "#a1d494",
+                "on-tertiary-fixed": "#2b1611",
+                "primary-fixed": "#bcf0ae",
+                "secondary-fixed": "#ffdcc6",
+                "inverse-surface": "#2f3130",
+                "secondary-container": "#fda465",
+                "surface-container-highest": "#e3e2e1",
+                "secondary-fixed-dim": "#ffb786",
+                "on-error-container": "#93000a",
+                "surface-dim": "#dadad9",
+                "outline": "#72796e",
+                "outline-variant": "#c2c9bb",
+                "background": "#faf9f8",
+                "error-container": "#ffdad6",
+                "primary-container": "#2d5a27",
+                "on-surface": "#1a1c1c",
+                "on-error": "#ffffff",
+                "on-tertiary-container": "#e1bab1",
+                "surface-container-lowest": "#ffffff",
+                "tertiary-fixed-dim": "#e5beb5",
+                "surface": "#faf9f8",
+                "surface-tint": "#3b6934",
+                "surface-container-high": "#e9e8e7",
+                "primary-fixed-dim": "#a1d494",
+                "on-background": "#1a1c1c",
+                "surface-container-low": "#f4f3f2",
+                "on-secondary-container": "#753800",
+                "on-surface-variant": "#42493e",
+                "tertiary": "#4d332d",
+                "error": "#ba1a1a",
+                "tertiary-fixed": "#ffdad2",
+                "primary": "#154212",
+                "on-primary-container": "#9dd090",
+                "on-secondary-fixed": "#311400",
+                "on-secondary-fixed-variant": "#723600",
+                "surface-container": "#eeeeed",
+                "on-tertiary": "#ffffff",
+                "surface-variant": "#e3e2e1",
+                "tertiary-container": "#664943",
+                "on-primary-fixed-variant": "#23501e",
+                "on-tertiary-fixed-variant": "#5c403a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Noto Serif"],
+                "body": ["Plus Jakarta Sans"],
+                "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif-text {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-[#faf9f8]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)]">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#2d5a27] dark:text-green-500" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Noto_Serif'] text-xl font-black text-[#2d5a27] dark:text-green-500 uppercase tracking-widest">The Epicurean</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-10">
+<h2 class="serif-text text-4xl font-black text-primary tracking-tight mb-2">Redemption History</h2>
+<p class="text-on-surface-variant text-sm font-medium tracking-wide">A curated chronicle of your exquisite tastes.</p>
+</section>
+<!-- Stats Overview (Asymmetric Card) -->
+<section class="mb-12 flex gap-4">
+<div class="flex-1 bg-primary-container p-6 rounded-xl shadow-sm text-on-primary-container">
+<p class="text-[10px] uppercase tracking-widest font-bold opacity-80 mb-1">Total Redeemed</p>
+<p class="text-3xl font-black serif-text">14,250</p>
+<p class="text-xs mt-2 font-medium">Points used this year</p>
+</div>
+<div class="w-1/3 bg-secondary-fixed p-6 rounded-xl shadow-sm text-on-secondary-fixed flex flex-col justify-between">
+<span class="material-symbols-outlined self-end" data-icon="redeem">redeem</span>
+<div>
+<p class="text-2xl font-black serif-text">12</p>
+<p class="text-[10px] uppercase tracking-widest font-bold opacity-80">Rewards</p>
+</div>
+</div>
+</section>
+<!-- Search & Filter (No-Line Minimalist) -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex-1 bg-surface-container-low px-4 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant/50" placeholder="Search merchants or rewards..." type="text"/>
+</div>
+<button class="ml-4 p-3 bg-surface-container-high rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<!-- History List (Tonal Layering / No Divider Rule) -->
+<div class="space-y-4">
+<!-- Entry 1 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center gap-5 hover:bg-surface-container-high transition-all group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up of a perfectly poured latte with intricate heart-shaped latte art in a white ceramic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNBxdCo8-A_oRSNvDrlrs0klfHR36Kxd3GvGDkrCx0_aRVligZCzOkiL_bVSTjX6H9SPMObO6XWVZpbzdCyl8PM0SsOJJ4sqmyjhPzYxQfpI2XJYbVcDiorzAueMus8WcpKQPKfnlKhe9Eoi6mx6DFshqZGI6ec5OjcEKwy-78lsaK9gJG7lAL_AXV77i23SerEZ6bByVwDqRS52dhvGNg1m5uQ8nb-AY25UGM-nhO-1EJ91UHQEVAkl84yWhfqJ2hzM9plkzwAVg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface tracking-tight">The Roastery Co.</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Oct 24, 2023</span>
+</div>
+<p class="text-sm text-on-surface-variant">Signature Espresso Tasting for Two</p>
+<div class="mt-3 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>- 1,200 pts</span>
+</div>
+</div>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Entry 2 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center gap-5 hover:bg-surface-container-high transition-all group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-end restaurant interior with moody lighting, white tablecloths, and sparkling crystal glassware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoeoy4HKRXXm8skykk2uXNXMO3l44oXt_mvUFqfY4_KZBiBlQNaURKbHfBX-EDez6IaDQPnDeYB4CAciFZ5bHOiTXaAAUn4iRL368hS8brmHk_qW_n3FYdxGwWQlzlypn_jHLA_CqaNiZDuNDfrHloOvDXZJia3gnHXS25curMWVIWr-OgpNJaEnKVlkIrw3Xd8IiDialNe8lHETW9heRE16bEm2od5pzXjUYlITYagD84L0zp3OJO1Sm9Iqirj6DqEdvKa_OSmVM"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface tracking-tight">L'Atelier de Luxe</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Oct 12, 2023</span>
+</div>
+<p class="text-sm text-on-surface-variant">$50 Dining Voucher</p>
+<div class="mt-3 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>- 5,000 pts</span>
+</div>
+</div>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Entry 3 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center gap-5 hover:bg-surface-container-high transition-all group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up of a deep red wine being poured into a large crystal glass with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAONeR8bdzBq-OoMMDb8qsatJPQiRyoNc55RQAzE_qKhPfdqclVmnMhklH6oo_pbGg5MgEkCb5D5opmOjgjh4T7Lc7-wT1cWBnwlQOO-64rX3yb3wUvz4_R2hgbQTlfAdVz99EvaurMz_-hBgHHeud_GtBJJnzs4K5K3vBmpUn-EAhzSj6n5cGw6YpJnbwXk3I1AOwjeP3MadcPRt_sreg4f7pmQNB51TYlRd1bagVUsKGjQycm1lpnJtC0jZUq5PW3J7vqe4qgbwo"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface tracking-tight">Vantage Vineyard</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Sep 28, 2023</span>
+</div>
+<p class="text-sm text-on-surface-variant">Private Cellar Tour</p>
+<div class="mt-3 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>- 3,500 pts</span>
+</div>
+</div>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Date Separator (Luxury Visual) -->
+<div class="py-6 text-center">
+<span class="text-[10px] uppercase tracking-[0.3em] font-black text-on-surface/30">September 2023</span>
+</div>
+<!-- Entry 4 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center gap-5 hover:bg-surface-container-high transition-all group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Selection of colorful gourmet pastries and macarons displayed on a minimalist marble stand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm3kIlKRslctC8BNeJL5EWKa1xAEg_l2gjNIb4XNhiVtX4IGBuxfDf1WaeLSAV8h1dsUVZcPpoLX0KCjlHcETiqfi71ETbiflG_KBYxOLBdLn91udZBTzHyY_tSaVILU_hS0UC0dEt1JjYTjy2djOgMRl46rHFFUXEn_BW3H4JnX4oGghYiu_hmwiyE9q8IvR5_2BwGpg1okdmJqAeRnx7j-B8O9rWOaP1uRsOBWp6KATCkv4xxfNgzLjc6bUxDF7h4Da-39X6294"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface tracking-tight">Petit Pâtisserie</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Sep 15, 2023</span>
+</div>
+<p class="text-sm text-on-surface-variant">Box of 12 Artisan Macarons</p>
+<div class="mt-3 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>- 850 pts</span>
+</div>
+</div>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Entry 5 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center gap-5 hover:bg-surface-container-high transition-all group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Expert bartender's hands garnishing a vibrant orange cocktail with a twist of lemon zest in a dimly lit bar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvRYDT0Z4nADKeKtXTaB1Ka1vYknf2QEl_EJG0cwXRg8iK3e7F3lviFvwepOKCS5c1vI5LsZO2yBghclHoi7kQpRbQXNY1okPbqThsMBev-PNBBgfQiY9i-EeG2Z2nD9IaODeXD7fMU5sdvxwMQsboO7N4DXS0gYaK5gyQICW_PwTytcMmNHc1-d9tKgyHkeWgpfUdmM1ds2eevoVIWCOidnjbaKMJUIW3fwZMI6QXzjC8pTLeKVaEkBFyKE94lckUN9O3eZJlSD0"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-on-surface tracking-tight">The Alchemist Bar</h4>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Aug 30, 2023</span>
+</div>
+<p class="text-sm text-on-surface-variant">Complimentary Craft Cocktail</p>
+<div class="mt-3 flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>- 600 pts</span>
+</div>
+</div>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Load More (Tertiary Stylization) -->
+<div class="mt-12 text-center pb-12">
+<button class="text-primary font-bold text-sm hover:underline underline-offset-8 transition-all tracking-wide">
+                View Older Redemptions
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#faf9f8]/90 dark:bg-stone-950/90 backdrop-blur-2xl rounded-t-[1.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider mt-1">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#2d5a27] text-white rounded-2xl px-4 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="redeem" style="font-variation-settings: 'FILL' 1;">redeem</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider mt-1">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "secondary": "#914c14",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002201",
+                    "inverse-primary": "#a1d494",
+                    "on-tertiary-fixed": "#2b1611",
+                    "primary-fixed": "#bcf0ae",
+                    "secondary-fixed": "#ffdcc6",
+                    "inverse-surface": "#2f3130",
+                    "secondary-container": "#fda465",
+                    "surface-container-highest": "#e3e2e1",
+                    "secondary-fixed-dim": "#ffb786",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadad9",
+                    "outline": "#72796e",
+                    "outline-variant": "#c2c9bb",
+                    "background": "#faf9f8",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#2d5a27",
+                    "on-surface": "#1a1c1c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#e1bab1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#e5beb5",
+                    "surface": "#faf9f8",
+                    "surface-tint": "#3b6934",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-fixed-dim": "#a1d494",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f4f3f2",
+                    "on-secondary-container": "#753800",
+                    "on-surface-variant": "#42493e",
+                    "tertiary": "#4d332d",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdad2",
+                    "primary": "#154212",
+                    "on-primary-container": "#9dd090",
+                    "on-secondary-fixed": "#311400",
+                    "on-secondary-fixed-variant": "#723600",
+                    "surface-container": "#eeeeed",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e3e2e1",
+                    "tertiary-container": "#664943",
+                    "on-primary-fixed-variant": "#23501e",
+                    "on-tertiary-fixed-variant": "#5c403a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-[#faf9f8]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_24px_48px_-12px_rgba(0,0,0,0.06)]">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#2d5a27] dark:text-green-500">menu</span>
+</button>
+<h1 class="font-['Noto_Serif'] text-xl font-black text-[#2d5a27] dark:text-green-500 uppercase tracking-widest">The Epicurean</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#2d5a27] dark:text-green-500">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Search Header Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<h2 class="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary">Culinary Collections</h2>
+<p class="text-on-surface-variant font-medium max-w-md">Discover handpicked destinations across our curated gastronomic landscape.</p>
+</div>
+<div class="relative w-full md:w-96 group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-highest rounded-xl border-none focus:ring-2 focus:ring-primary/20 bg-surface-container-highest transition-all duration-300 placeholder:text-outline" placeholder="Search categories..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Category Card 1: Artisan Coffee (Large Vertical) -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="relative h-[500px] rounded-xl overflow-hidden bg-surface-container-low transition-transform duration-500 hover:scale-[0.98]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of aromatic latte art in a ceramic cup on a dark wooden table with warm ambient coffee shop lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBORsbXduBcLdq6422PtuEZQmFxAhjPrGsPMwWp1WOg6t6CrXDfydrXjIYKFcQHV5GOWfeln_2Sbc2xmL2iu1ZGDzfzKJz_i8ZhtUshnwkowQRp6yNE0O2dYN1PF1QmEhM_m9gQ9ApcRjIrZ_eXpI_wB2D0-kdjkfS91NCVCifwDzZq8VCdQBqq5gtKe_fFCfm1iDJ37lbIhbeHJJFmaJXFHd5YKcLQGW5i_HYU8ailFH6SREwpY7BG1FA6InylOdKixk63HF06xcM"/>
+<div class="absolute bottom-0 left-0 p-8 z-20">
+<span class="inline-block px-3 py-1 mb-4 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded-full">12 Establishments</span>
+<h3 class="font-headline text-3xl text-white mb-2">Artisan Coffee</h3>
+<p class="text-white/70 text-sm font-medium">Roastery culture and specialty brews.</p>
+</div>
+</div>
+</div>
+<!-- Right side sub-grid -->
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Category Card 2: Fine Dining -->
+<div class="group cursor-pointer">
+<div class="relative h-[238px] rounded-xl overflow-hidden bg-surface-container-low transition-transform duration-500 hover:scale-[0.98]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="elegant table setting in a luxury restaurant with crystal glassware and soft candlelight reflecting off polished surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdIOk5fYkj_vo3qNUI3rWHa5UdLsRtcvOvZxyYixEjMpnlFDb1f25yoVPfMajDe8oI6vKVTPa1R1Xj1DuqATTPXIjhSk7rOVhYBk6hv1hrptW7m8_GGwq6tCMZVUhMiao8Vrc4KupLZie__6Jh2ydviaO8CsxYk4YM4ZBqo2r6HVViZhCqBn9DVt8T1dA7TksH8jrRsyO-MFwOSt5y7YtHpEZHIkY_HzgVxWBXjVFT5hBQgvIeRECi3gLj0hdmi9ki2KqnPrEPWRM"/>
+<div class="absolute bottom-0 left-0 p-6 z-20">
+<span class="inline-block px-3 py-1 mb-3 bg-secondary text-white text-[10px] font-bold uppercase tracking-widest rounded-full">8 Venues</span>
+<h3 class="font-headline text-2xl text-white">Fine Dining</h3>
+</div>
+</div>
+</div>
+<!-- Category Card 3: Bakeries -->
+<div class="group cursor-pointer">
+<div class="relative h-[238px] rounded-xl overflow-hidden bg-surface-container-low transition-transform duration-500 hover:scale-[0.98]">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="assorted freshly baked golden croissants and sourdough loaves on a rustic wooden bakery display shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX-pppFmK45in3VGrAAv7ciH2hTS_W4LOK5IJPJtRi8_GhlaTEkB5lmf-PIbUKomy5biV8Q-IPzZWnkxnGQ4umyHXpkPx6wmC72Rj1cbdpsGs2uyggkJ3n6QWHVknU13Wi4bguYsEo8KkxYF51F20WJljmMTUtqP2DhP7oxeLZa3n_gSXRxixBtQDoq94naC_IxGp1JVqF8XLyKnYokniK_wVha3xe40X5aGmcFn4VToVJuuixSZRs4yZ4OCLNUkmvNjScZ7Q_Yjs"/>
+<div class="absolute bottom-0 left-0 p-6 z-20">
+<span class="inline-block px-3 py-1 mb-3 bg-secondary text-white text-[10px] font-bold uppercase tracking-widest rounded-full">15 Bakeries</span>
+<h3 class="font-headline text-2xl text-white">Bakeries</h3>
+</div>
+</div>
+</div>
+<!-- Category Card 4: Healthy Eats (Wide) -->
+<div class="md:col-span-2 group cursor-pointer">
+<div class="relative h-[238px] rounded-xl overflow-hidden bg-surface-container-low transition-transform duration-500 hover:scale-[0.98]">
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant mediterranean salad bowl with fresh greens, tomatoes, and grains in a bright airy kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5Z883Baanhq3q3cW77387kLRWadZ066c3YOYAWPddPUovh97byO9-nlzcIP_BgyjlyDH2Jop8gJ8s70ZeT-JfRSt0BEmGPj9R_5aK2uuQuJ5OLq3pPhGDCkEA_BooTHdVEBGuVX7T1f0tbxhlBIFjJwD6c1t2FypGDWtz021YYl2Tawg7_yG_6S2wQh0cMkMSG4ErGGWhzVVY93MbuQAanwcAEasA1Tlep1zi--e1YWOD0SjIHV6pAgQlT3d8vXqVjJuVnIOUkk"/>
+<div class="absolute top-0 bottom-0 left-0 p-8 z-20 flex flex-col justify-center max-w-md">
+<span class="self-start px-3 py-1 mb-4 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest rounded-full">21 Spots</span>
+<h3 class="font-headline text-3xl text-white mb-2">Healthy Eats</h3>
+<p class="text-white/80 text-sm font-medium">Nourishing bowls, organic juices, and sustainable dining for the conscious palate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Collections Carousel Placeholder -->
+<section class="mt-20">
+<div class="flex items-baseline justify-between mb-8">
+<h3 class="font-headline text-2xl text-primary font-bold">Curated Selection</h3>
+<a class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                    Explore all <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="flex overflow-x-auto gap-6 hide-scrollbar pb-8 -mx-6 px-6">
+<!-- Mini Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-low rounded-xl p-4 flex items-center gap-4 group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="close-up of a steaming herbal tea in a glass cup with mint leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCys3V69Vc5CNxyBO7I4uf7RxSuI5wgWObBMr8jz7WM75gvG3J0g9ZIpTbnNrsRZykSJw2VfLmCoYnc_XxMU8lyUTZ2tOe2Q9NVDJO-r4HEWYjfRPEhlHzLRFqj_ZGfjyHOuzGxjovB8qJWlt-cSQAW-i5qlS45qbEHZiaCwcuRJmFYk7y0qEL0mKn2W7sHO5j0szS5b8Ayhj_9iGTgSOMwapJunsMJiacF1m4i2jG1SQHJWMiIlQG9mwZlpsnAp8v-ihtUsKFhQDY"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Teahouses</h4>
+<p class="text-xs text-outline">6 brands</p>
+</div>
+</div>
+<!-- Mini Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-low rounded-xl p-4 flex items-center gap-4 group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="gourmet pizza slice with melting cheese and fresh basil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR3nRCCWnT8c3FQ4fztACkQm2KtXEcrSjqQwfybox2QgO1vAuP2MBK-yxSfMWmqHYf2ms9kLFyAPCbIzAXKSv7w3--Xy3kGJKaKSdDQiwV1KPQJZHhbVMYMy8K3QVSxNtTzq43wIdNCnPMPyat5nAyDnLWxySWYfI0PLXKM60qB1ghl9E_w4bmTwTURnftKXrZiNVWJ7fQ67SuxbBj1LwXMN_QsWWzBKC1NhGTIVznquvaZ2J9Q3M1D1bWbTw06FD4KpDhLGCKHoE"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Pizzerias</h4>
+<p class="text-xs text-outline">14 brands</p>
+</div>
+</div>
+<!-- Mini Card 3 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-low rounded-xl p-4 flex items-center gap-4 group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="stack of glazed donuts with colorful sprinkles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt6NrB0L9LdrdLHWHv288gSuGUK_kw5tyUit3aE42WmCHZPjkgleeDah2kfyqFytexyR2LZbC2BH9inj01VC3Lgi1F-GBpgf8UJlQf0dIsXJi0n5DIjHQb7g1GxxIE0WhZ-e54rNn_cYYaYNraR2uSe3nQzv2YhZn8Y_PqTkusB5DMOt6vlqNM59YTXX8V-nJXYXEZZewCjpoCE98H2K_y96b9UANf5Vp3MjMlQK_fAl393vHL-y3ut9JX02IYePR-Jd52Fdc_laY"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Desserts</h4>
+<p class="text-xs text-outline">19 brands</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#faf9f8]/90 dark:bg-stone-950/90 backdrop-blur-2xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.08)] rounded-t-[1.5rem]">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<!-- Active Navigation: Categories -->
+<a class="flex flex-col items-center justify-center bg-[#2d5a27] text-white rounded-2xl px-4 py-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">category</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">redeem</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-2 hover:text-[#2d5a27] dark:hover:text-green-400 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

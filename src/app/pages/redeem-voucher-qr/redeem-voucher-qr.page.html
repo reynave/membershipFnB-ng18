@@ -1,0 +1,35 @@
+<section class="grid gap-4 px-4 pb-6 pt-5">
+  <header class="flex items-start gap-3">
+    <button type="button" class="inline-flex size-11 items-center justify-center rounded-full border-0 bg-[#e4e2dd]" (click)="back()"><span class="material-symbols-outlined">arrow_back</span></button>
+    <div>
+      <h1 class="font-headline text-5xl font-bold leading-[.95] text-brand-900">Redeem Voucher</h1>
+      <p class="mt-1 text-sm text-[#4e574e]">Present this QR code to the cashier before checkout.</p>
+    </div>
+  </header>
+
+  <article class="rounded-2xl bg-brand-900 p-4 text-[#f4ece2]">
+    <h2 class="font-headline text-4xl leading-[.95]">Brunch Privilege</h2>
+    <p class="mt-1 text-xs text-[#e4d6c5]">Maison Lumiere - Central Branch</p>
+    <span class="mt-2 inline-flex rounded-full bg-[#9f4c18] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Valid for 2 guests</span>
+  </article>
+
+  <article class="grid place-items-center rounded-3xl bg-[#f9f6f2] p-4 text-center">
+    <img class="w-full max-w-[260px] rounded-2xl" src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=MEMBER-REDEEM-2025-PLATINUM" alt="Voucher QR" />
+    <p class="mt-3 text-xs uppercase tracking-wide text-[#666c66]">Code refreshes in</p>
+    <strong class="font-headline text-4xl text-brand-900">{{ timerLabel }}</strong>
+  </article>
+
+  <section class="rounded-2xl bg-[#ececea] p-4">
+    <h3 class="font-headline text-3xl">Redemption instructions</h3>
+    <ol class="mt-2 list-decimal space-y-1 pl-4 text-sm text-[#303430]">
+      <li>Show this screen to the redemption desk.</li>
+      <li>Wait for staff verification and confirmation.</li>
+      <li>Enjoy your dining privilege instantly.</li>
+    </ol>
+  </section>
+
+  <div class="grid grid-cols-2 gap-2">
+    <button type="button" class="rounded-2xl border-0 bg-[#1a1d1a] px-4 py-3 text-sm font-bold uppercase tracking-wide text-white" (click)="refreshCode()">Refresh Code</button>
+    <button type="button" class="rounded-2xl border border-[#d9d5cd] bg-transparent px-4 py-3 text-sm font-bold uppercase tracking-wide" (click)="back()">Cancel</button>
+  </div>
+</section>
