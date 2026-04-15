@@ -4,6 +4,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
+import { AuthSessionService } from './services/auth-session.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,6 +18,7 @@ export class AppComponent {
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly authSessionService = inject(AuthSessionService);
 
   constructor() {
     this.updateRouteState();
@@ -26,6 +29,11 @@ export class AppComponent {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(() => this.updateRouteState());
+  }
+
+  logout(): void {
+    this.authSessionService.clearSession();
+    void this.router.navigate(['/login']);
   }
 
   private updateRouteState(): void {

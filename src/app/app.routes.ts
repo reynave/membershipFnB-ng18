@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { authGuard } from './guards/auth.guard';
+
 export const routes: Routes = [
 	{
 		path: 'login',
@@ -12,6 +14,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'dashboard',
+		canActivate: [authGuard],
 		data: {
 			title: 'The Epicurean',
 		},
@@ -22,6 +25,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'loyalty-bonuses',
+		canActivate: [authGuard],
 		data: {
 			title: 'Loyalty & Bonuses',
 		},
@@ -30,6 +34,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'categories',
+		canActivate: [authGuard],
 		data: {
 			title: 'Culinary Collections',
 		},
@@ -38,6 +43,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'voucher-wallet',
+		canActivate: [authGuard],
 		data: {
 			title: 'Voucher Wallet',
 		},
@@ -46,6 +52,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'redeem-voucher-qr',
+		canActivate: [authGuard],
 		data: {
 			title: 'Redeem Voucher',
 			hideChrome: true,
@@ -55,6 +62,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'redemption-history',
+		canActivate: [authGuard],
 		data: {
 			title: 'Redemption History',
 		},
@@ -63,6 +71,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'point-history',
+		canActivate: [authGuard],
 		data: {
 			title: 'Point History',
 		},
