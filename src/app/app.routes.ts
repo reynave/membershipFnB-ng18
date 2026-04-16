@@ -79,6 +79,15 @@ export const routes: Routes = [
 			import('./pages/point-history/point-history.page').then((m) => m.PointHistoryPage),
 	},
 	{
+		path: 'profile',
+		canActivate: [authGuard],
+		data: {
+			title: 'Profile',
+		},
+		loadComponent: () =>
+			import('./pages/profile-user/profile-user.page').then((m) => m.ProfileUserPage),
+	},
+	{
 		path: '',
 		pathMatch: 'full',
 		redirectTo: 'dashboard',

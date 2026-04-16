@@ -11,17 +11,6 @@ export interface MemberProfile {
   createdAt: string;
 }
 
-export interface ApiResponse<T> {
-  success: boolean;
-  message: string;
-  data: T;
-}
-
-export interface MembershipPingResponse {
-  success: boolean;
-  source: string;
-}
-
 export interface LoginPayload {
   email: string;
   password: string;
@@ -31,25 +20,20 @@ export interface RegisterPayload extends LoginPayload {
   name: string;
 }
 
-export interface LoginResult {
-  token: string;
-  member: MemberProfile;
-}
-
 @Injectable({ providedIn: 'root' })
 export class MembershipAuthService {
   private readonly http = inject(HttpClient);
   private readonly membershipBaseUrl = `${environment.apiBaseUrl}/membership`;
 
-  ping(): Observable<MembershipPingResponse> {
-    return this.http.get<MembershipPingResponse>(`${this.membershipBaseUrl}/ping`);
+  ping(): Observable<any> {
+    return this.http.get<any>(`${this.membershipBaseUrl}/ping`);
   }
 
-  login(payload: LoginPayload): Observable<ApiResponse<LoginResult>> {
-    return this.http.post<ApiResponse<LoginResult>>(`${this.membershipBaseUrl}/auth/login`, payload);
+  login(payload: LoginPayload): Observable<any> {
+    return this.http.post<any>(`${this.membershipBaseUrl}/auth/login`, payload);
   }
 
-  register(payload: RegisterPayload): Observable<ApiResponse<MemberProfile>> {
-    return this.http.post<ApiResponse<MemberProfile>>(`${this.membershipBaseUrl}/auth/register`, payload);
+  register(payload: RegisterPayload): Observable<any> {
+    return this.http.post<any>(`${this.membershipBaseUrl}/auth/register`, payload);
   }
 }

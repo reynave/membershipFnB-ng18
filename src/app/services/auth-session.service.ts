@@ -15,6 +15,20 @@ export class AuthSessionService {
     return localStorage.getItem(this.tokenStorageKey);
   }
 
+  getMember(): MemberProfile | null {
+    const rawValue = localStorage.getItem(this.memberStorageKey);
+
+    if (!rawValue) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(rawValue) as MemberProfile;
+    } catch {
+      return null;
+    }
+  }
+
   persistSession(token: string, member: MemberProfile): void {
     localStorage.setItem(this.tokenStorageKey, token);
     localStorage.setItem(this.memberStorageKey, JSON.stringify(member));

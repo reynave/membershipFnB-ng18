@@ -1,0 +1,72 @@
+<section class="grid gap-5 px-4 pb-8 pt-5">
+  <header class="flex items-center justify-between">
+    <button
+      type="button"
+      class="rounded-full p-2 text-brand-900 hover:bg-black/5"
+      (click)="back()"
+      aria-label="Back"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="font-headline text-4xl font-bold leading-none text-brand-900">Profile</h1>
+    <span class="w-10"></span>
+  </header>
+
+  <section class="rounded-3xl bg-[#f2efe9] p-4">
+    <p class="text-xs font-bold uppercase tracking-[.08em] text-[#6c6f69]">Membership</p>
+    <h2 class="mt-2 font-headline text-4xl font-bold leading-[.9] text-brand-900">{{ fullName }}</h2>
+    <p class="mt-1 text-sm font-semibold text-[#5c635b]">Epicurean Gold Member</p>
+  </section>
+
+  <form class="grid gap-4" (ngSubmit)="saveProfile()">
+    <label class="grid gap-2">
+      <span class="text-xs font-bold uppercase tracking-[.08em] text-[#6c6f69]">Full Name</span>
+      <input
+        type="text"
+        name="fullName"
+        [(ngModel)]="fullName"
+        class="rounded-2xl border border-[#e0ddd7] bg-[#faf9f6] px-4 py-3 text-sm font-semibold text-[#2a2f2a] outline-none focus:border-brand-700"
+      />
+    </label>
+
+    <label class="grid gap-2">
+      <span class="text-xs font-bold uppercase tracking-[.08em] text-[#6c6f69]">Email Address</span>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        class="rounded-2xl border border-[#e0ddd7] bg-[#faf9f6] px-4 py-3 text-sm font-semibold text-[#2a2f2a] outline-none focus:border-brand-700"
+      />
+    </label>
+
+    <label class="grid gap-2">
+      <span class="text-xs font-bold uppercase tracking-[.08em] text-[#6c6f69]">Phone Number</span>
+      <input
+        type="tel"
+        name="phone"
+        [(ngModel)]="phone"
+        placeholder="+62"
+        class="rounded-2xl border border-[#e0ddd7] bg-[#faf9f6] px-4 py-3 text-sm font-semibold text-[#2a2f2a] outline-none focus:border-brand-700"
+      />
+    </label>
+
+    <section class="rounded-2xl bg-[#f4f1ea] p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="font-bold text-[#2a2f2a]">Password</p>
+          <p class="text-xs text-[#6c6f69]">Last updated recently</p>
+        </div>
+        <button type="button" class="text-sm font-bold text-brand-900 hover:underline">Change</button>
+      </div>
+    </section>
+
+    <button
+      type="submit"
+      class="mt-1 rounded-2xl bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-4 font-headline text-3xl font-bold text-white"
+    >
+      Save Changes
+    </button>
+
+    <p *ngIf="saveMessage" class="text-center text-xs font-bold uppercase tracking-[.08em] text-[#7a4b2d]">{{ saveMessage }}</p>
+  </form>
+</section>

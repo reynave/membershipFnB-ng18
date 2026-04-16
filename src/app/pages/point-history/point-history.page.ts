@@ -1,28 +1,100 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+
+import { MembershipPointService } from '../../services/membership-point.service';
 
 @Component({
   selector: 'app-point-history-page',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <section class="grid gap-4 px-4 pb-6 pt-5">
-      <header>
-        <h1 class="font-headline text-5xl font-bold leading-[.95] text-brand-900">Point History</h1>
-        <p class="mt-2 text-sm text-[#4e574e]">Track your earned and redeemed points in one elegant timeline.</p>
-      </header>
-
-      <section class="grid grid-cols-2 gap-2">
-        <article class="rounded-2xl bg-brand-900 p-4 text-[#f4ece2]"><span class="text-[10px] uppercase tracking-wide text-[#d8c9b7]">Available points</span><strong class="mt-2 block font-headline text-5xl leading-none">18,420</strong></article>
-        <article class="rounded-2xl bg-[#ececea] p-4"><span class="text-[10px] uppercase tracking-wide text-[#666c66]">This month</span><strong class="mt-2 block font-headline text-5xl leading-none">+2,180</strong></article>
-      </section>
-
-      <div class="grid gap-2">
-        <article class="rounded-xl bg-[#f6f4f0] p-3"><div class="flex items-start justify-between gap-2"><h3 class="font-semibold">Dining at Maison Lumiere</h3><span class="text-[11px] text-[#666c66]">Today</span></div><p class="text-xs text-[#666c66]">Member spend multiplier x2</p><strong class="mt-2 inline-flex rounded-full bg-[#d8e2d5] px-2 py-1 text-[11px] font-bold uppercase">+420 pts</strong></article>
-        <article class="rounded-xl bg-[#f6f4f0] p-3"><div class="flex items-start justify-between gap-2"><h3 class="font-semibold">Redeemed Brunch Privilege</h3><span class="text-[11px] text-[#666c66]">2 days ago</span></div><p class="text-xs text-[#666c66]">Maison Lumiere voucher</p><strong class="mt-2 inline-flex rounded-full bg-[#f1d9c8] px-2 py-1 text-[11px] font-bold uppercase text-[#5e2e12]">-1,200 pts</strong></article>
-        <article class="rounded-xl bg-[#f6f4f0] p-3"><div class="flex items-start justify-between gap-2"><h3 class="font-semibold">Coffee Journey Challenge</h3><span class="text-[11px] text-[#666c66]">Last week</span></div><p class="text-xs text-[#666c66]">Completed 4/4 partner visits</p><strong class="mt-2 inline-flex rounded-full bg-[#d8e2d5] px-2 py-1 text-[11px] font-bold uppercase">+960 pts</strong></article>
-      </div>
-    </section>
-  `,
+  templateUrl: './point-history.page.html',
 })
-export class PointHistoryPage {}
+export class PointHistoryPage implements OnInit {
+  protected historyItems: any[] = [];
+  protected isLoading = true;
+  protected errorMessage = '';
+  protected balancePoint = 0;
+  protected thisMonthDelta = 0;
+
+  private readonly membershipPointService = inject(MembershipPointService);
+
+  ngOnInit(): void {
+    this.loadPointHistory();
+  }
+
+  protected formatNumber(value: number): string {
+    return Number(value || 0).toLocaleString('en-US');
+  }
+
+  protected formatPointDelta(value: number): string {
+    const normalizedValue = Number(value || 0);
+    const prefix = normalizedValue >= 0 ? '+' : '-';
+
+    return `${prefix}${this.formatNumber(Math.abs(normalizedValue))}`;
+  }
+
+  protected resolveDelta(item: any): number {
+    return Number(item?.pointIn || 0) - Number(item?.pointOut || 0);
+  }
+
+  protected isPointIn(item: any): boolean {
+    return this.resolveDelta(item) >= 0;
+  }
+
+  protected formatDate(value: string): string {
+    const dateValue = new Date(value);
+
+    if (Number.isNaN(dateValue.getTime())) {
+      return '-';
+    }
+
+    return dateValue.toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+  }
+
+  private loadPointHistory(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.membershipPointService.getHistory().subscribe({
+      next: (response) => {
+        const rows = Array.isArray(response?.data) ? response.data : [];
+
+        this.historyItems = rows;
+        this.computeStats(rows);
+        this.isLoading = false;
+      },
+      error: () => {
+        this.historyItems = [];
+        this.balancePoint = 0;
+        this.thisMonthDelta = 0;
+        this.errorMessage = 'Failed to load point history';
+        this.isLoading = false;
+      }
+    });
+  }
+
+  private computeStats(rows: any[]): void {
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+    let totalDelta = 0;
+    let monthDelta = 0;
+
+    rows.forEach((item) => {
+      const delta = this.resolveDelta(item);
+      totalDelta += delta;
+
+      const dateValue = new Date(item?.transactionDate);
+      if (!Number.isNaN(dateValue.getTime()) && dateValue.getMonth() === currentMonth && dateValue.getFullYear() === currentYear) {
+        monthDelta += delta;
+      }
+    });
+
+    this.balancePoint = totalDelta;
+    this.thisMonthDelta = monthDelta;
+  }
+}
