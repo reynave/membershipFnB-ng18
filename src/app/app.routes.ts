@@ -88,6 +88,16 @@ export const routes: Routes = [
 			import('./pages/profile-user/profile-user.page').then((m) => m.ProfileUserPage),
 	},
 	{
+		path: 'notification',
+		canActivate: [authGuard],
+		data: {
+			title: 'Notification',
+			hideChrome: true,
+		},
+		loadComponent: () =>
+			import('./pages/notification/notification.page').then((m) => m.NotificationPage),
+	},
+	{
 		path: '',
 		pathMatch: 'full',
 		redirectTo: 'dashboard',

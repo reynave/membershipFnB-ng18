@@ -1,76 +1,139 @@
 # AGENT USER PLAYBOOK
 
-Dokumen ini adalah kontrak kerja antara AI Agent dan Developer untuk proyek membership app berbasis Angular.
+Dokumen ini adalah onboarding cepat untuk AI Agent frontend (Angular) agar bisa langsung kerja dengan aman, cepat, dan konsisten.
 
 ## 1) Tujuan
 
-- Mempercepat delivery frontend Angular berdasarkan desain di folder `stitchUser`.
-- Mencegah tabrakan pekerjaan antara AI dan Developer.
-- Menjaga kualitas kode tetap konsisten.
+- Mempercepat delivery frontend Angular berdasarkan desain Stitch.
+- Menjaga sinkronisasi kerja antara AI Agent dan Developer.
+- Menghindari perubahan yang memecah flow bisnis existing.
 
-## 2) Sumber Desain
+## 2) Ringkasan Arsitektur Frontend
 
-- Referensi utama: folder `stitchUser/*/code.html`.
-- Bila ada perbedaan visual, prioritas desain mengikuti referensi Stitch.
+- Path project frontend: `user/`
+- Framework: Angular (standalone components)
+- Styling: Tailwind CSS + Material Symbols
+- Routing: lazy `loadComponent` per halaman
+- Auth model:
+	- Login/register ke backend membership
+	- JWT disimpan di localStorage via `AuthSessionService`
+	- Interceptor auto tambah `Authorization: Bearer ...`
+	- `authGuard` proteksi semua route non-login
 
-## 3) Pembagian Peran
+## 3) Sumber Kebenaran (Wajib Dibaca Dulu)
 
-### AI Agent mengerjakan
+1. `AI-AGENT/TODO-USER.md` (status task dan ownership)
+2. `AI-AGENT/RULES.md` (aturan teknis wajib)
+3. `src/app/app.routes.ts` (map halaman)
+4. `src/app/services/` (kontrak API frontend)
+5. `stitchUser/*/code.html` (referensi desain)
 
-- Scaffolding komponen/page Angular.
-- Routing, struktur folder, reusable UI component.
-- Styling dan responsive behavior mengikuti desain.
-- Refactor aman (tanpa mengubah behavior bisnis tanpa instruksi).
-- Menulis checklist teknis dan update status di TODO.
+## 4) Aturan Wajib Frontend
 
-### Developer mengerjakan
+Ikuti aturan ini tanpa pengecualian:
 
-- Keputusan bisnis/fungsional final.
-- Integrasi backend/API nyata, auth production, security policy.
-- Approval perubahan besar (arsitektur, dependency baru, breaking flow).
-- QA final, UAT, dan keputusan release.
+1. Dilarang pakai fitur Angular experimental/preview.
+2. Dilarang pakai `loadChildren`.
+3. Request API wajib generic `any`:
 
-### Kolaboratif (AI + Developer)
+```ts
+this.http.get<any>(url, options)
+this.http.post<any>(url, body, options)
+```
 
-- Review UI parity vs desain Stitch.
-- Penyusunan acceptance criteria tiap halaman.
-- Perbaikan bug yang ditemukan saat testing.
+4. Aksi back wajib `history.back()` (bukan `router.navigate`).
+5. Jangan ubah API contract backend tanpa instruksi eksplisit.
+6. Jangan ubah task owner lain yang sedang `IN_PROGRESS`.
 
-## 4) Aturan Anti-Bentrok
+## 5) Konvensi Date & Timezone
 
-- Setiap task di TODO wajib punya `Owner` (AI/DEV/PAIR).
-- Sebelum mulai task, ubah `Status` ke `IN_PROGRESS`.
-- Satu task hanya boleh punya satu owner aktif kecuali `PAIR`.
-- Jangan ubah task milik owner lain yang sedang `IN_PROGRESS` tanpa konfirmasi.
-- Setelah selesai, ubah `Status` ke `DONE` dan isi `Notes` singkat.
-- Jika terblokir, ubah ke `BLOCKED` dan tulis blocker spesifik.
+- Backend simpan timestamp dalam UTC.
+- Frontend menampilkan waktu lokal berdasarkan setting environment.
+- Variable timezone ada di:
+	- `src/environments/environment.ts`
+	- `src/environments/environment.development.ts`
+- Nilai saat ini: `+7` (WIB).
+- Saat implementasi date display, gunakan satu pendekatan yang konsisten agar semua halaman sama timezone.
 
-## 5) Konvensi Implementasi Frontend
+## 6) Halaman Utama dan Tanggung Jawab
 
-- Framework: Angular (standalone components diperbolehkan).
-- Naming file/komponen: konsisten, deskriptif, lowercase-kebab-case untuk file.
-- Hindari hardcode data bisnis di UI; gunakan mock data terpusat saat API belum siap.
-- Komponen umum dipisah agar reusable (header, bottom-nav, card, badge, dsb).
-- Mobile-first; minimum dukungan viewport umum mobile.
+- `login-welcome`: login/register flow
+- `dashboard-member-detail`: tampilkan point balance member
+- `point-history`: riwayat perolehan/penggunaan point dari API
+- `redemption-history`: histori redeem (masih dominan mock UI)
+- `voucher-wallet`: daftar voucher
+- `redeem-voucher-qr`: flow QR redeem
+- `notification`: tampilkan event realtime dari Socket.IO (`point:in`, `redeem:success`, `redeem:failed`)
+- `profile-user`: profile dan aksi back
 
-## 6) Definition of Done (DoD)
+## 7) Pembagian Peran (AI vs Developer)
 
-Task dianggap selesai jika:
+### AI Agent fokus
 
-- UI sesuai desain referensi dengan deviasi minor yang bisa dijelaskan.
-- Tidak ada error build/lint yang baru akibat perubahan.
-- Route/page terkait bisa diakses dan berjalan.
-- TODO ter-update (`Status`, `Owner`, `Notes`, tanggal).
+- Scaffolding/rapikan page dan komponen
+- Integrasi API sisi presentasi (tanpa ubah kontrak backend)
+- Styling + responsive behavior sesuai desain
+- Refactor aman yang tidak mengubah behavior bisnis
+- Update TODO dan change log
 
-## 7) Prioritas Eksekusi Awal
+### Developer fokus
 
-1. Setup layout dasar aplikasi (top bar, content area, bottom nav).
-2. Implement halaman Login/Welcome.
-3. Implement Dashboard Member Detail.
-4. Implement halaman lain bertahap (Loyalty, Categories, Wallet, Histories, Redeem QR).
+- Keputusan bisnis final
+- Validasi fungsional, QA/UAT
+- Kebijakan security produksi
+- Approval perubahan besar (arsitektur/dependency)
 
-## 8) Cara Pakai Dokumen Ini
+### Pair (AI + Developer)
 
-- Gunakan file `TODO-user.md` sebagai single source of truth progres kerja.
-- Update status sesering mungkin saat mulai/selesai task.
-- Bila scope berubah, update dokumen ini terlebih dulu sebelum lanjut coding.
+- UI parity check vs Stitch
+- Verifikasi edge case flow login, history, redeem
+- Final hardening sebelum release
+
+## 8) Workflow Task yang Benar
+
+1. Cek `TODO-USER.md`.
+2. Pilih task yang statusnya bukan `IN_PROGRESS` owner lain.
+3. Set `Owner` lalu ubah status jadi `IN_PROGRESS`.
+4. Kerjakan perubahan kecil dan terfokus.
+5. Validasi minimal: build sukses dan route terkait berjalan.
+6. Update notes, ubah status ke `DONE` atau `REVIEW`.
+7. Tambah entri `Change Log` dengan tanggal.
+
+## 9) Definition of Done (DoD)
+
+Task frontend dianggap selesai jika:
+
+- UI sesuai desain referensi (deviasi minor harus dijelaskan)
+- Tidak menambah error compile/lint
+- Alur halaman bisa diakses dan berfungsi
+- Tidak melanggar `RULES.md`
+- TODO terupdate (owner, status, notes, changelog)
+
+## 10) Larangan Umum
+
+- Jangan hardcode data bisnis permanen di template.
+- Jangan tambah dependency baru tanpa kebutuhan kuat.
+- Jangan ubah style global secara agresif jika tidak diminta.
+- Jangan refactor lintas banyak halaman sekaligus dalam satu task kecil.
+
+## 11) File Penting Cepat
+
+- `src/app/app.config.ts` -> provider global, interceptor
+- `src/app/app.routes.ts` -> peta route seluruh app
+- `src/app/guards/auth.guard.ts` -> proteksi auth
+- `src/app/interceptors/auth-token.interceptor.ts` -> injeksi bearer token
+- `src/app/services/auth-session.service.ts` -> simpan session login
+- `src/app/services/membership-auth.service.ts` -> API login/register
+- `src/app/services/membership-point.service.ts` -> API points
+- `src/app/pages/notification/notification.page.ts` -> format notifikasi socket
+
+## 12) Checklist Saat AI Agent Baru Masuk
+
+Gunakan checklist ini sebelum coding:
+
+- [ ] Sudah baca `TODO-USER.md`
+- [ ] Sudah baca `RULES.md`
+- [ ] Sudah cek task owner lain yang sedang aktif
+- [ ] Sudah pahami halaman target + API yang dipakai
+- [ ] Sudah tahu dampak ke auth/session/routing
+- [ ] Sudah rencanakan update changelog setelah selesai

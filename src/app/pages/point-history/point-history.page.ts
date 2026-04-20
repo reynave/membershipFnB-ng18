@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 
 import { MembershipPointService } from '../../services/membership-point.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-point-history-page',
@@ -15,7 +16,7 @@ export class PointHistoryPage implements OnInit {
   protected errorMessage = '';
   protected balancePoint = 0;
   protected thisMonthDelta = 0;
-
+  public environment = environment;
   private readonly membershipPointService = inject(MembershipPointService);
 
   ngOnInit(): void {
