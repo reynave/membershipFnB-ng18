@@ -1,0 +1,22 @@
+<section class="grid gap-4 px-4 pb-6 pt-5">
+  <header>
+    <h1 class="font-headline text-5xl font-bold leading-[.95] text-brand-900">Vouchers</h1>
+    <p class="mt-2 text-sm text-[#4e574e]">Explore available vouchers you can redeem with your points.</p>
+  </header>
+
+  <!-- <input type="text" placeholder="Search vouchers..." class="w-full rounded-xl border-0 bg-[#e2e2e0] px-3 py-3 text-sm" /> -->
+
+  <div class="grid gap-3">
+    <ng-container *ngIf="!loading() && vouchers().length === 0">
+      <div class="text-sm text-[#666c66]">No vouchers available.</div>
+    </ng-container>
+
+    <article *ngFor="let v of vouchers()" [routerLink]="['/vouchers', v.id]" class="cursor-pointer flex min-h-40 flex-col justify-end rounded-2xl p-3 text-white" [style.background]="'linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.14)),url('+ (v.img || 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1100&auto=format&fit=crop') +') center/cover'">
+      <span class="mb-2 w-max rounded-full bg-[#a35118] px-2 py-1 text-[12px] font-extrabold uppercase tracking-wide">{{ v.pointsAmount | number }} Points</span>
+      <h2 class="font-headline text-4xl leading-[.9]">{{ v.name }}</h2>
+      <p class="mt-1 text-xs text-white/85">{{ v.description }}</p>
+    </article>
+  </div>
+
+  
+</section>

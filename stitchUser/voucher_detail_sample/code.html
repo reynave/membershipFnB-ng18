@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c2c9bb",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "tertiary-container": "#664943",
+                    "surface": "#faf9f8",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#4d332d",
+                    "surface-variant": "#e3e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#914c14",
+                    "surface-container-high": "#e9e8e7",
+                    "secondary-fixed-dim": "#ffb786",
+                    "background": "#faf9f8",
+                    "surface-container": "#eeeeed",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#2d5a27",
+                    "primary": "#154212",
+                    "on-secondary-fixed-variant": "#723600",
+                    "secondary-container": "#fda465",
+                    "on-primary-fixed": "#002201",
+                    "tertiary-fixed": "#ffdad2",
+                    "surface-tint": "#3b6934",
+                    "on-secondary-fixed": "#311400",
+                    "on-background": "#1a1c1c",
+                    "outline": "#72796e",
+                    "on-tertiary-fixed": "#2b1611",
+                    "on-surface-variant": "#42493e",
+                    "surface-container-highest": "#e3e2e1",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a1d494",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#9dd090",
+                    "surface-dim": "#dadad9",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#753800",
+                    "primary-fixed": "#bcf0ae",
+                    "surface-container-low": "#f4f3f2",
+                    "secondary-fixed": "#ffdcc6",
+                    "on-tertiary-container": "#e1bab1",
+                    "tertiary-fixed-dim": "#e5beb5",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#5c403a",
+                    "on-primary-fixed-variant": "#23501e",
+                    "inverse-primary": "#a1d494",
+                    "surface-bright": "#faf9f8",
+                    "inverse-surface": "#2f3130"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "display": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-bleed {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav bg-stone-50/80 dark:bg-zinc-950/80">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-emerald-900 dark:text-emerald-400">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Noto_Serif'] font-bold tracking-tight text-emerald-900 dark:text-emerald-400 text-lg">Voucher Detail</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-emerald-900 dark:text-emerald-400">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pb-32">
+<!-- Hero Section with Editorial Layering -->
+<section class="relative w-full h-[530px] overflow-hidden">
+<img alt="Signature Wagyu Steak" class="w-full h-full object-cover hero-bleed" data-alt="Close-up of a perfectly seared signature Wagyu steak with rosemary garnish on a dark rustic plate, dramatic side lighting, fine dining atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5X-NKpClqnk_LgtH31Qv1DIHmmBMSVDaHYqH0L0ZVOI7Ycx7SmvcnpWmE99dbqAMSPlR-2rRp37e7TEuZmIFrtHR8ksJt5huNwD0qar_VvBahPKvkTxHPqvY9c1cf8cZwhjV6mxpRVOg2CBp0wt7E7CcN_tTuHvJvxQcKjok4SjiszG4LSJJxdMIyjFV4i4V3fA3ycIjMsxcGyhCUSDfy2EeIbw5ThM6KrK-MmWgCUBqcfLP0mIO7lvPyMbIjzydEcRSxdnR6Zf4"/>
+<div class="absolute bottom-12 left-6 right-6">
+<div class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 shadow-lg">
+                    Premium Reward
+                </div>
+<h2 class="font-display text-4xl md:text-6xl font-black text-white drop-shadow-2xl leading-tight">
+                    Exclusive 3-Course <br/>Tasting Menu
+                </h2>
+</div>
+</section>
+<!-- Content Canvas -->
+<div class="px-6 -mt-8 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]">
+<!-- Brand & Location Anchor -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+<div>
+<p class="text-primary font-bold text-sm tracking-widest uppercase mb-1">Presented By</p>
+<h3 class="font-display text-2xl font-bold text-on-surface">The Grill Room</h3>
+<div class="flex items-center gap-2 text-outline mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="text-sm font-medium">Downtown Branch, Metropolis</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex flex-col items-end">
+<span class="text-xs text-outline uppercase tracking-tighter">Required Points</span>
+<span class="text-3xl font-display font-black text-secondary">2,500 EP</span>
+</div>
+</div>
+<!-- Description Bento Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<div class="md:col-span-2 space-y-6">
+<h4 class="font-display text-xl font-bold text-on-surface border-l-4 border-primary pl-4">The Experience</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg font-body">
+                            Indulge in a curated culinary journey designed by our Executive Chef. This exclusive voucher entitles you to a decadent three-course experience featuring our signature A5 Wagyu selection, seasonal harvest appetizers, and a handcrafted artisanal dessert. 
+                        </p>
+<div class="flex flex-wrap gap-3">
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span> Fine Dining
+                            </span>
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="wine_bar">wine_bar</span> Wine Pairing Available
+                            </span>
+<span class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span> Valid Weekdays
+                            </span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<h4 class="font-display text-lg font-bold text-on-surface">What's Included</h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Welcome glass of bubbly</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Signature Choice of Starter</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Executive Main Course</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Artisan Dessert Flight</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Location Map Section -->
+<div class="rounded-xl overflow-hidden bg-surface-container-low h-64 relative group">
+<img alt="Map location" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A stylized aerial street map of a luxury downtown district with elegant minimalist markers and warm golden accents." data-location="Metropolis Downtown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq5MRQyKVFC5M07dYiwhVNdbg3s7X-redmtYOsMCJKCqfPE_vss3w2tffpof6UjVdLRiRjIaoxDBDnwePNCY_2wgh53d8Jjd3SPP9hQWXa6rMIs3PHwJAgEr6Z-AVRz35e2uhBWaZNjSgZyz6V94yhT3e0ttsqyH0acYlVJABTOaeyF5STFH1Ct4fa8w4WiszH23dv1Tj9-wdLVl4qNN-EN4iuv4mXptjixkx3vpM4WmKEgjYfrGYpYxMjt_kU0KL6wwZqFc0kKeA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 to-transparent flex flex-col justify-end p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-xs uppercase tracking-widest text-primary font-black mb-1">Find Us</p>
+<p class="text-on-surface font-bold">122 Gourmet Plaza, West District</p>
+</div>
+<button class="bg-surface-container-lowest p-3 rounded-full shadow-md active:scale-90 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="directions">directions</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell & Action -->
+<div class="fixed bottom-0 w-full z-50">
+<!-- Persistent CTA -->
+<div class="px-6 pb-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-5 rounded-xl font-bold text-lg shadow-[0_12px_32px_-4px_rgba(21,66,18,0.3)] active:scale-95 transition-all flex items-center justify-center gap-3">
+                Redeem for 2,500 EP
+                <span class="material-symbols-outlined" data-icon="star">star</span>
+</button>
+</div>
+<!-- Shared BottomNavBar -->
+<nav class="bg-stone-50/90 dark:bg-zinc-950/90 backdrop-blur-2xl rounded-t-[1.5rem] shadow-[0_-4px_24px_0px_rgba(0,0,0,0.04)] flex justify-around items-center px-4 pt-3 pb-6">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-zinc-500 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="restaurant">restaurant</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-widest">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-emerald-900 dark:bg-emerald-400 text-stone-50 dark:text-zinc-950 rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="confirmation_number" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-widest">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-zinc-500 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-widest">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-zinc-500 hover:text-emerald-700 dark:hover:text-emerald-300 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

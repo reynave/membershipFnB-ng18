@@ -42,6 +42,7 @@ Gunakan daftar ini untuk membagi kerja AI dan Developer agar tidak saling tabrak
 | ✅ | T-022 | Halaman Profile User | Page profile + route + session prefill | AI | DONE | Medium | T-002, T-017 | Selesai: /profile, templateUrl HTML, back via history.back(), getMember() |
 | 🟨 | T-013 | Integrasi API Membership | Dashboard, points, vouchers | DEV | IN_PROGRESS | High | T-004, T-007, T-010, T-011 | Progress: dashboard balance + point history sudah terhubung API, vouchers belum |
 | 🟨 | T-023 | Timezone display +7 (WIB) | Set DATE_PIPE_DEFAULT_OPTIONS global di app.config + formatDate di notification.page.ts | AI | IN_PROGRESS | Medium | T-013 | Rekomendasi sudah diberikan, implementasi belum dieksekusi ke file |
+| ✅ | T-024 | Update voucher reminders UI | Dashboard | AI | DONE | Low | T-004 | Updated `dashboard-member-detail.page.html` to promo-style cards |
 | ⬜ | T-014 | QA visual parity | Bandingkan per screen dengan Stitch | PAIR | TODO | Medium | T-003..T-010 | Cek mobile responsiveness |
 | ⬜ | T-015 | Hardening release | Perf, accessibility, edge states | PAIR | TODO | Medium | T-012, T-013 | Final pass sebelum release |
 
@@ -49,6 +50,7 @@ Gunakan daftar ini untuk membagi kerja AI dan Developer agar tidak saling tabrak
 
 | Date | ID Task | Perubahan | Oleh |
 |---|---|---|---|
+| 2026-04-24 | T-024 | Update voucher reminders UI to promo-style cards (dashboard) | AI |
 | 2026-04-20 | T-023 | Diskusi strategi timezone: simpan UTC di backend, konversi ke +7 di frontend Angular | AI |
 | 2026-04-20 | T-023 | Rencana implementasi: DATE_PIPE_DEFAULT_OPTIONS di app.config + normalizeTimezoneOffset helper + formatDate di notification.page.ts | AI |
 | 2026-04-16 | T-013 | Integrasi dashboard point balance ke API GET /api/membership/points/balance (replace angka mock) | AI |

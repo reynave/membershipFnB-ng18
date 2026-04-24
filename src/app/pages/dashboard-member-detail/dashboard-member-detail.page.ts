@@ -1,6 +1,8 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Component, OnInit, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 import { MembershipPointService } from '../../services/membership-point.service';
 
@@ -17,14 +19,36 @@ export class DashboardMemberDetailPage implements OnInit {
   protected readonly promos = signal<any[]>([]);
   protected readonly isLoadingPromos = signal(false);
   protected readonly promosError = signal('');
+  protected readonly voucherReminders = signal<any[]>([]);
+  protected readonly isLoadingVoucherReminders = signal(false);
+  protected readonly voucherRemindersError = signal('');
 
   private readonly membershipPointService = inject(MembershipPointService);
+  private readonly http = inject(HttpClient);
+  private readonly membershipBaseUrl = `${environment.apiBaseUrl}/membership`;
 
   ngOnInit(): void {
     this.loadPointBalance();
     this.loadPromos();
+    this.loadVoucherReminders();
   }
 
+  private loadVoucherReminders(): void {
+    this.isLoadingVoucherReminders.set(true);
+    this.voucherRemindersError.set('');
+
+    this.http.get<any>(`${this.membershipBaseUrl}/members-voucher`).subscribe({
+      next: (res: any) => {
+        this.voucherReminders.set(res.data?.rows || []);
+        this.isLoadingVoucherReminders.set(false);
+      },
+      error: (_err: any) => {
+        this.voucherReminders.set([]);
+        this.voucherRemindersError.set('Failed to load vouchers');
+        this.isLoadingVoucherReminders.set(false);
+      }
+    });
+  }
   private loadPointBalance(): void {
     this.isLoadingPointBalance.set(true);
     this.pointBalanceError.set('');

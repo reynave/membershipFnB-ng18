@@ -42,6 +42,23 @@ export const routes: Routes = [
 			import('./pages/f-b-categories/f-b-categories.page').then((m) => m.FBCategoriesPage),
 	},
 	{
+		path: 'vouchers',
+		canActivate: [authGuard],
+		data: {
+			title: 'Vouchers',
+		},
+		loadComponent: () => import('./pages/vouchers/vouchers.page').then((m) => m.VouchersPage),
+	},
+	{
+		path: 'vouchers/:id',
+		canActivate: [authGuard],
+		data: {
+			title: 'Voucher Detail',
+			hideChrome: true,
+		},
+		loadComponent: () => import('./pages/vouchers/voucher-detail.page').then((m) => m.VoucherDetailPage),
+	},
+	{
 		path: 'voucher-wallet',
 		canActivate: [authGuard],
 		data: {

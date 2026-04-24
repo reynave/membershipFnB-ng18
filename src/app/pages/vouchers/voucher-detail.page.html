@@ -1,0 +1,28 @@
+<section class="p-4">
+  <header class="mb-4">
+    <button type="button" class="text-lg font-bold" (click)="history.back()">Back</button>
+  </header>
+
+  <div *ngIf="loading()" class="text-center">Loading...</div>
+  <div *ngIf="error() && !loading()" class="text-center text-red-600">{{ error() }}</div>
+
+  <div *ngIf="voucher() && !loading()" class="space-y-4">
+    <h1 class="font-headline text-4xl font-bold">{{ voucher()?.name }}</h1>
+    <img *ngIf="voucher()?.img" [src]="voucher()?.img" alt="voucher image" class="w-full rounded-lg" />
+    <p class="text-sm text-gray-700">{{ voucher()?.description }}</p>
+    <div class="text-sm text-gray-600"> 
+      <div *ngIf="voucher()?.pointsRequired">Points required: {{ voucher()?.pointsRequired | number }}</div>
+      <div *ngIf="voucher()?.pointsAmount">Voucher amount: {{ voucher()?.pointsAmount | number }}</div>
+      <div *ngIf="voucher()?.startDate">Start: {{ voucher()?.startDate | date:'short' }}</div>
+      <div *ngIf="voucher()?.endDate">End: {{ voucher()?.endDate | date:'short' }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Fixed bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 z-50 pointer-events-auto">
+  <div class="px-6 pb-4 bg-transparent">
+    <button (click)="redeem()" class="w-full bg-emerald-800 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3">Redeem for {{ voucher()?.pointsRequired | number }} EP <span class="material-symbols-outlined">star</span></button>
+  </div>
+</div>
+
