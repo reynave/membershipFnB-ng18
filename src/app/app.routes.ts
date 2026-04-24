@@ -79,6 +79,24 @@ export const routes: Routes = [
 			import('./pages/point-history/point-history.page').then((m) => m.PointHistoryPage),
 	},
 	{
+		path: 'promos',
+		canActivate: [authGuard],
+		data: {
+			title: 'Promos',
+			hideChrome: true,
+		},
+		loadComponent: () => import('./pages/promos/promo-list.page').then((m) => m.PromoListPage),
+	},
+	{
+		path: 'promos/:id',
+		canActivate: [authGuard],
+		data: {
+			title: 'Promo Detail',
+			hideChrome: true,
+		},
+		loadComponent: () => import('./pages/promos/promo-detail.page').then((m) => m.PromoDetailPage),
+	},
+	{
 		path: 'profile',
 		canActivate: [authGuard],
 		data: {

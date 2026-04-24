@@ -1,0 +1,23 @@
+<section class="p-4">
+<header class="mb-4">
+    <button type="button" class="text-lg font-bold" (click)="history.back()">Back</button>
+  </header>
+
+  <h1 class="font-headline text-3xl font-bold mb-4">All Promos</h1>
+
+  <div *ngIf="loading()" class="text-center">Loading...</div>
+  <div *ngIf="error() && !loading()" class="text-center text-red-600">{{ error() }}</div>
+
+
+
+  <div class="grid grid-cols-1 gap-3">
+    <article *ngFor="let promo of promos()" class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (promo.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
+      <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Promo</span>
+      <h3 class="font-headline text-3xl leading-[.9]">{{ promo.name }}</h3>
+      <p class="mt-1 text-xs text-white/85">{{ promo.description?.length > 80 ? (promo.description | slice:0:80) + '...' : promo.description }}</p>
+      <div class="mt-2 flex justify-end">
+        <a [routerLink]="['/promos', promo.id]" class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
+      </div>
+    </article>
+  </div>
+</section>

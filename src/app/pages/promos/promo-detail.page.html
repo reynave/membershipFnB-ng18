@@ -1,0 +1,14 @@
+<section class="p-4">
+  <header class="mb-4">
+    <button type="button" class="text-lg font-bold" (click)="history.back()">Back</button>
+  </header>
+
+  <div *ngIf="loading()" class="text-center">Loading...</div>
+  <div *ngIf="error() && !loading()" class="text-center text-red-600">{{ error() }}</div>
+
+  <div *ngIf="promo() && !loading()" class="space-y-4">
+    <h1 class="font-headline text-4xl font-bold">{{ promo()?.name }}</h1>
+    <img *ngIf="promo()?.img" [src]="promo()?.img" alt="promo image" class="w-full rounded-lg" />
+    <p class="text-sm text-gray-700">{{ promo()?.description }}</p>
+  </div>
+</section>

@@ -2,25 +2,46 @@
 
 Dokumen ini adalah aturan wajib untuk pengembangan frontend Angular pada proyek ini.
 
-## DILARANG
+##  Aturan Wajib Angular membership
 
-1. Tidak boleh menggunakan fitur/function yang masih tahap pengembangan, uji coba, preview, developer preview, atau experimental. Gunakan hanya fitur yang sudah stabil/fix atau LTS.
-2. Tidak boleh menggunakan `loadChildren` pada router.
-3. Untuk request API `http.get` / `http.post`, wajib gunakan generic `any` agar development cepat selama kontrak response REST API belum final.
+Ikuti aturan ini tanpa pengecualian:
 
-Contoh:
+1. Dilarang pakai fitur Angular experimental/preview.
+2. Dilarang pakai `loadChildren`.
+3. Request API wajib generic `any`:
 
 ```ts
 this.http.get<any>(url, options)
 this.http.post<any>(url, body, options)
 ```
 
-4. Jika ada tombol back atau aksi `back()`, tidak boleh pakai `router.navigate()` / `router.navigateByUrl()` untuk kembali ke halaman sebelumnya. Wajib menggunakan `history.back()`.
+4. Aksi back wajib `history.back()`.
+5. Jangan ubah kontrak API backend tanpa instruksi eksplisit.
+6. Jangan ubah task owner lain yang sedang `IN_PROGRESS`.
 
-Contoh:
+### Catatan: Penggunaan `<any>` vs Interface/Class
+
+Karena semua request HTTP wajib `<any>`, **interface TypeScript untuk response API ditiadakan** selama kontrak API belum final. Ini disengaja agar tidak ada overhead maintenance ketika shape response berubah.
+
+Yang **boleh** tetap pakai interface/type:
+- Model form input (contoh: `LoginForm`, `FilterParams`) — karena ini kontrak internal komponen, bukan dari API.
+- State lokal yang kompleks di dalam komponen (opsional, jika membantu keterbacaan).
+
+Yang **tidak perlu** dibuat:
+- Interface untuk response HTTP (`MemberResponse`, `PointData`, dll.) — cukup akses properti langsung dari `response.data`.
+
+Contoh benar:
 
 ```ts
-back(): void {
-	history.back();
+// ✅ form model internal — boleh pakai interface
+interface LoginForm {
+  email: string;
+  password: string;
 }
+
+// ✅ HTTP call — wajib <any>
+this.http.post<any>(`${this.baseUrl}/auth/login`, payload)
+  .subscribe(res => {
+    const token = res.data.token; // akses langsung, tanpa cast
+  });
 ```

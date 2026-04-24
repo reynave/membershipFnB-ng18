@@ -16,4 +16,12 @@ export class MembershipPointService {
   getHistory(): Observable<any> {
     return this.http.get<any>(`${this.membershipBaseUrl}/points/history`);
   }
+
+  getPromos(): Observable<any> {
+    return this.http.get<any>(`${this.membershipBaseUrl}/promos`);
+  }
+
+  getPromo(id: string | number): Observable<any> {
+    return this.http.get<any>(`${this.membershipBaseUrl}/promos/${id}`);
+  }
 }

@@ -16,25 +16,9 @@
 
   <button type="button" class="rounded-3xl bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-7 font-headline text-3xl font-bold text-white">Show My QR</button>
 
-  <section class="mt-1 flex items-end justify-between">
-    <h2 class="font-headline text-4xl font-bold">Our Brands</h2>
-    <a href="#" class="text-sm font-bold text-brand-900">View All</a>
-  </section>
+ 
 
-  <div class="grid grid-cols-2 gap-3">
-    <article class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" style="background-image:linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop');background-size:cover;background-position:center">
-      <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Limited</span>
-      <h3 class="font-headline text-3xl leading-[.9]">Artisan Morning Blend</h3>
-      <p class="mt-1 text-xs text-white/85">2x points on all coffee beverages before 10 AM.</p>
-    </article>
-    <article class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" style="background-image:linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url('https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=900&auto=format&fit=crop');background-size:cover;background-position:center">
-      <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Reward</span>
-      <h3 class="font-headline text-3xl leading-[.9]">The Patisserie Set</h3>
-      <p class="mt-1 text-xs text-white/85">Complimentary pastry pairing with your next roast.</p>
-    </article>
-  </div>
-
-  <h2 class="font-headline text-4xl font-bold">Promo</h2>
+  <h2 class="font-headline text-4xl font-bold">My Promos</h2>
 
   <div class="grid gap-2">
     <article class="flex justify-between gap-3 rounded-2xl bg-[#f0f0ee] p-3">
@@ -50,6 +34,22 @@
         <p class="text-sm text-[#4d544d]">Any single-origin selection</p>
       </div>
       <strong class="text-xs font-bold uppercase tracking-wide text-[#8d4d23]">Exp. 2 Days</strong>
+    </article>
+  </div>
+
+   <section class="mt-1 flex items-end justify-between">
+    <h2 class="font-headline text-4xl font-bold">Promos</h2>
+    <a [routerLink]="['/promos']" class="text-sm font-bold text-brand-900">View All</a>
+  </section>
+
+  <div class="grid grid-cols-1 gap-3">
+    <article *ngFor="let promo of promos()" class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (promo.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
+      <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Promo</span>
+      <h3 class="font-headline text-3xl leading-[.9]">{{ promo.name }}</h3>
+      <p class="mt-1 text-xs text-white/85 ">{{ truncateDescription(promo.description) }}</p>
+      <div class="mt-2 flex justify-end">
+        <a [routerLink]="['/promos', promo.id]" class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
+      </div>
     </article>
   </div>
 </section>
