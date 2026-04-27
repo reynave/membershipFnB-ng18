@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>The Epicurean Membership</title>
-  <base href="/">
+  <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div id="user-loader" class="flex items-center justify-center min-h-screen bg-white" role="status" aria-live="polite">
+      <div class="text-center">
+        <svg class="animate-spin h-12 w-12 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+        </svg>
+        <div class="mt-3 text-gray-700 font-medium">Loading application…</div>
+      </div>
+    </div>
+  </app-root>
 </body>
 </html>

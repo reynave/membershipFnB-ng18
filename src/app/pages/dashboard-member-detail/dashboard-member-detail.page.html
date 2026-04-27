@@ -14,7 +14,7 @@
     <div class="mt-2 flex justify-between text-[12px] font-bold  text-[#5e615e]"> <span>Expiry Date  2027-01-01</span></div> 
   </article>
 
-  <button type="button" class="rounded-3xl bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-7 font-headline text-3xl font-bold text-white">Show My QR</button>
+  <!-- <button type="button" class="rounded-3xl bg-gradient-to-br from-brand-900 to-brand-700 px-4 py-7 font-headline text-3xl font-bold text-white">Show My QR</button> -->
 
  <h2 class="font-headline text-4xl font-bold">My Vouchers Reminders</h2>
 
@@ -23,17 +23,17 @@
       <div class="text-sm text-[#666c66]">No active vouchers.</div>
     </ng-container>
 
-    <article *ngFor="let mv of voucherReminders()" class="flex min-h-48 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (mv.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
+    <article [routerLink]="['/vouchers', mv.voucherId || mv.id]" *ngFor="let mv of voucherReminders()" class="flex min-h-48 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (mv.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
       <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Voucher</span>
       <h3 class="font-headline text-3xl leading-[.9]">{{ mv.voucherName }}</h3>
       <p class="mt-1 text-xs text-white/85">{{ truncateDescription(mv.voucherDescription) }}</p>
       <div class="mt-2 flex justify-end">
-        <a [routerLink]="['/vouchers', mv.voucherId || mv.id]" class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
+        <a  class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
       </div>
     </article>
   </div>
 
-  <h2 class="font-headline text-4xl font-bold">My Promos</h2>
+  <!-- <h2 class="font-headline text-4xl font-bold">My Promos</h2>
 
   <div class="grid gap-2">
     <article class="flex justify-between gap-3 rounded-2xl bg-[#f0f0ee] p-3">
@@ -50,7 +50,7 @@
       </div>
       <strong class="text-xs font-bold uppercase tracking-wide text-[#8d4d23]">Exp. 2 Days</strong>
     </article>
-  </div>
+  </div> -->
 
    <section class="mt-1 flex items-end justify-between">
     <h2 class="font-headline text-4xl font-bold">Promos</h2>
@@ -58,12 +58,12 @@
   </section>
 
   <div class="grid grid-cols-1 gap-3">
-    <article *ngFor="let promo of promos()" class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (promo.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
+    <article *ngFor="let promo of promos()" [routerLink]="['/promos', promo.id]" class="flex min-h-52 flex-col justify-end rounded-2xl p-3 text-white" [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (promo.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'" style="background-size:cover;background-position:center">
       <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Promo</span>
       <h3 class="font-headline text-3xl leading-[.9]">{{ promo.name }}</h3>
       <p class="mt-1 text-xs text-white/85 ">{{ truncateDescription(promo.description) }}</p>
       <div class="mt-2 flex justify-end">
-        <a [routerLink]="['/promos', promo.id]" class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
+        <a  class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
       </div>
     </article>
   </div>

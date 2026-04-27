@@ -1,4 +1,4 @@
 export const environment = {
-	apiBaseUrl: 'http://localhost:3200/api',
+	apiBaseUrl: 'https://nodejs.mitralinksolusi.com/api',
 	timezone : '+0700'
 };

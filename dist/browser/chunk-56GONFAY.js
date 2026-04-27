@@ -1,0 +1,1 @@
+import{Q as i}from"./chunk-URHBCQNX.js";var o=class e{current=null;set(t){this.current=t}get(){return this.current}clear(){this.current=null}static \u0275fac=function(n){return new(n||e)};static \u0275prov=i({token:e,factory:e.\u0275fac,providedIn:"root"})};export{o as a};
