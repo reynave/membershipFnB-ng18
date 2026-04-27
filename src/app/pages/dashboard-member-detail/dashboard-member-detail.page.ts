@@ -33,6 +33,19 @@ export class DashboardMemberDetailPage implements OnInit {
     this.loadVoucherReminders();
   }
 
+  get memberName(): string {
+    try {
+      const raw = localStorage.getItem('membership_member');
+      if (!raw) return 'Member';
+      const parsed = JSON.parse(raw);
+      return (
+        parsed?.name || parsed?.fullName || parsed?.displayName || parsed?.username || 'Member'
+      );
+    } catch (_e) {
+      return 'Member';
+    }
+  }
+
   private loadVoucherReminders(): void {
     this.isLoadingVoucherReminders.set(true);
     this.voucherRemindersError.set('');
