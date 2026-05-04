@@ -1,0 +1,31 @@
+<section class="p-4">
+  <header class="mb-4">
+    <button type="button" class="text-lg font-bold" (click)="history.back()">Back</button>
+  </header>
+
+  <div *ngIf="loading()" class="text-center">Loading...</div>
+  <div *ngIf="error() && !loading()" class="text-center text-red-600">{{ error() }}</div>
+
+  <div *ngIf="voucher() && !loading()" class="space-y-4">
+    <h2 class=" text-gray-500">Your Voucher</h2>
+    <h1 class="font-headline text-4xl font-bold">{{ voucher()?.voucherName || voucher()?.name }}</h1>
+    <img *ngIf="voucher()?.voucherImg || voucher()?.img" [src]="voucher()?.voucherImg || voucher()?.img" alt="voucher image" class="w-full rounded-lg" />
+    <p class="text-sm text-gray-700">{{ voucher()?.voucherDescription || voucher()?.description }}</p>
+
+    <div class="mt-4">
+      <h4 class="font-bold text-center">Barcode</h4>
+      <div class="mt-2">
+        <div class="inline-block p-4 bg-white rounded-lg shadow w-full">
+          <svg #barcodeSvg class="mx-auto block" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <code class="text-center block">{{ voucher()?.barcode }}</code>
+    </div>
+
+    <div class="text-sm text-gray-600"> 
+      <div *ngIf="voucher()?.pointsRequired">Points required: <strong>{{ voucher()?.pointsRequired | number }}  </strong> </div>
+      <div *ngIf="voucher()?.pointsAmount">Voucher amount: <strong>{{ voucher()?.pointsAmount | number }}</strong></div>
+      <div *ngIf="voucher()?.expiredDate">Expired: <strong>{{ voucher()?.expiredDate | date:'short' }} </strong></div>
+    </div>
+  </div>
+</section>

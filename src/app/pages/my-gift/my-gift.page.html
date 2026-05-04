@@ -1,0 +1,90 @@
+<section class="grid gap-4   pb-8 ">
+  <header class="sticky top-0 z-20 bg-white/95 backdrop-blur-sm py-3 shadow-sm flex items-center justify-between">
+    <button
+      type="button"
+      class="rounded-full p-2 text-brand-900 hover:bg-black/5"
+      (click)="goBack()"
+      aria-label="Back"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+    <h1 class="font-headline text-4xl font-bold leading-none text-brand-900">History Voucher Saya</h1>
+    <span class="w-10"></span>
+  </header>
+
+<!-- Tabs + Content -->
+<main class="pt-2 px-4 pb-8">
+  <div class="flex p-1.5 bg-surface-container-low rounded-xl mb-6 w-fit mx-auto sm:mx-0">
+    <div class="w-full flex gap-2">
+      <button
+        type="button"
+        (click)="setTab('active')"
+        [class]="activeTab === 'active' ? 'flex-1 px-4 py-2.5 bg-slate-500 rounded-lg text-sm font-bold tracking-tight bg-primary text-white shadow-sm transition-all text-center' : 'flex-1 px-4 py-2.5 rounded-lg text-sm font-bold tracking-tight text-on-surface-variant hover:text-on-surface transition-all text-center'"
+      >
+        Active
+      </button>
+      <button
+        type="button"
+        (click)="setTab('history')"
+        [class]="activeTab === 'history' ? 'flex-1 px-4 py-2.5  bg-slate-500  rounded-lg text-sm font-bold tracking-tight bg-primary text-white shadow-sm transition-all text-center' : 'flex-1 px-4 py-2.5 rounded-lg text-sm font-bold tracking-tight text-on-surface-variant hover:text-on-surface transition-all text-center'"
+      >
+        History
+      </button>
+    </div>
+  </div>
+  <div class="rounded-b-3xl">
+    <section *ngIf="activeTab === 'active'" class="space-y-6">
+      <div *ngIf="isLoadingVoucherReminders()" class="text-sm text-on-surface-variant">Loading vouchers...</div>
+      <ng-container *ngIf="!isLoadingVoucherReminders()">
+        <ng-container *ngIf="voucherReminders().length === 0">
+            <div class=" bg-[#f2efe9] p-4">
+                    <div class="text-sm text-on-surface-variant">No active vouchers.</div>
+            </div>
+         
+        </ng-container>
+
+        <article
+          *ngFor="let mv of voucherReminders()"
+          [routerLink]="['/my-gift', mv.id]"
+          class="flex min-h-48 flex-col justify-end rounded-2xl p-3 text-white"
+          [style.backgroundImage]="'linear-gradient(to top,rgba(0,0,0,.66),rgba(0,0,0,.1)),url(' + (mv.voucherImg || mv.img || 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop') + ')'"
+          style="background-size:cover;background-position:center"
+        >
+          <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide">Voucher</span>
+          <h3 class="font-headline text-3xl leading-[.9]">{{ mv.voucherName || mv.name }}</h3>
+          <p class="mt-1 text-xs text-white/85">{{ truncateDescription(mv.voucherDescription || mv.description) }}</p>
+          <div class="mt-2 flex justify-end">
+            <a class="text-sm font-bold text-white/90">Lihat selengkapnya</a>
+          </div>
+        </article>
+      </ng-container>
+    </section>
+
+    <section *ngIf="activeTab === 'history'" class="space-y-6">
+       <div *ngIf="isLoadingVoucherHistory()" class="text-sm text-on-surface-variant">Loading history...</div>
+      <ng-container *ngIf="!isLoadingVoucherHistory()">
+        <ng-container *ngIf="voucherHistory().length === 0">
+          <div class=" bg-[#f2efe9] p-4">
+            <div class="text-sm text-on-surface-variant">No history vouchers.</div>
+          </div>
+        </ng-container>
+
+        <div *ngFor="let hv of voucherHistory()" class="w-full">
+          <div class="grid grid-cols-12 gap-4 items-center p-3 rounded-lg border border-gray-200 bg-white/60">
+           
+            <div class="col-span-12">
+              <div class="text-sm text-gray-800 font-semibold">{{ hv.voucherName || hv.name }}</div>
+              <div class="text-xs text-gray-600">{{ truncateDescription(hv.voucherDescription || hv.description) }}</div>
+              <div *ngIf="hv.usedMerchantName" class="text-sm font-bold">Used at: {{ hv.usedMerchantName }}</div>  
+              <div class="text-sm text-gray-800 mt-3">
+                <span class="mb-2 w-max rounded-full bg-[#a34f17e6] px-2 py-1 me-4 text-[10px] font-extrabold uppercase tracking-wide"> {{ hv.used > 0 ? 'Used' : (hv.used === -1 ? 'Expired' : 'Other') }} </span>
+                 {{ hv.usedDate ? (hv.usedDate | date:'medium') : '' }}</div>
+            </div>
+             
+          </div>
+        </div>
+      </ng-container>
+    </section>
+  </div>
+</main>
+</section>

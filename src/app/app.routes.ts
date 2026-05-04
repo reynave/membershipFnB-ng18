@@ -50,6 +50,24 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/vouchers/vouchers.page').then((m) => m.VouchersPage),
 	},
 	{
+		path: 'my-gift',
+		canActivate: [authGuard],
+		data: {
+			title: 'My Gift',
+					hideChrome: true,
+		},
+		loadComponent: () => import('./pages/my-gift/my-gift.page').then((m) => m.MyGiftPage),
+	},
+	{
+		path: 'my-gift/:id',
+		canActivate: [authGuard],
+		data: {
+			title: 'My Gift Detail',
+			hideChrome: true,
+		},
+		loadComponent: () => import('./pages/my-gift-detail/my-gift-detail.page').then((m) => m.MyGiftDetailPage),
+	},
+	{
 		path: 'vouchers/:id',
 		canActivate: [authGuard],
 		data: {

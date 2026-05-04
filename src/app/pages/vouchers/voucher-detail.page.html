@@ -20,9 +20,20 @@
 </section>
 
 <!-- Fixed bottom CTA -->
-<div class="fixed bottom-0 left-0 right-0 z-50 pointer-events-auto">
+<div *ngIf="!hideCta()" class="fixed bottom-0 left-0 right-0 z-50 pointer-events-auto">
   <div class="px-6 pb-4 bg-transparent">
-    <button (click)="redeem()" class="w-full bg-emerald-800 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3">Redeem for {{ voucher()?.pointsRequired | number }} EP <span class="material-symbols-outlined">star</span></button>
+    <button (click)="redeem()" class="w-full bg-emerald-800 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3">Redeem for {{ voucher()?.pointsRequired | number }} Points <span class="material-symbols-outlined">star</span></button>
+  </div>
+</div>
+
+<!-- Local toast (bottom center) -->
+<div *ngIf="toast()" class="fixed left-1/2 transform -translate-x-1/2 bottom-24 z-60">
+  <div [ngClass]="{
+      'bg-green-600': toast()?.type === 'success',
+      'bg-red-500': toast()?.type === 'error',
+      'bg-slate-800': toast()?.type === 'info'
+    }" class="text-white px-4 py-3 rounded-lg shadow-lg max-w-md mx-auto">
+    {{ toast()?.message }}
   </div>
 </div>
 

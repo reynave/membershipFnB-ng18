@@ -184,6 +184,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
+Package: jsbarcode
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
 Package: @angular/platform-browser
 License: "MIT"
 
